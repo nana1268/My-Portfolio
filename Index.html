@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fatimah's Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body { overflow-x: hidden; scroll-behavior: smooth; font-family:sans-serif; background:#0f172a;}
+body::before {
+  content:"";
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(270deg, #0f172a, #1e293b, #0f172a);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  z-index:-1;
+}
+@keyframes gradientBG { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+.hero-text span { text-shadow: 0 0 12px #0d9488,0 0 20px #14b8a6; }
+
+.card {
+  background: rgba(31,41,55,0.9);
+  border-radius: 1rem; padding:1rem; margin-bottom:1.5rem; text-align:center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  opacity:0; transform:translateY(50px);
+}
+.card:hover { transform: translateY(-10px) scale(1.05) rotateY(6deg); box-shadow: 0 20px 50px rgba(20,184,166,0.5); }
+
+.img-card { position:relative; border-radius:0.5rem; overflow:hidden; cursor:pointer; margin-bottom:1rem; }
+.img-card img { width:100%; border-radius:0.5rem; transition: transform 0.5s ease, filter 0.5s ease; }
+.img-card:hover img { transform: scale(1.08) translateZ(40px); filter: brightness(1.3) drop-shadow(0 0 20px #14b8a6); }
+
+.overlay {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.8); color:white; display:flex;
+  flex-direction:column; justify-content:center; align-items:center;
+  opacity:0; transform: translateY(-20px);
+  transition: all 0.5s ease;
+  padding:1rem; text-align:center;
+}
+.img-card:hover .overlay { opacity:1; transform: translateY(0); }
+
+h3 { text-shadow: 0 0 12px #0d9488,0 0 18px #14b8a6; }
+
+.tech-card { 
+  width:70px; height:70px; display:flex; flex-direction:column; justify-content:center; align-items:center; 
+  font-size:0.7rem; color:white; margin:0.3rem; border-radius:0.5rem; 
+  background:rgba(31,41,55,0.9); transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease; 
+  opacity:0;
+}
+.tech-card img { width:40px; height:40px; margin-bottom:4px; }
+.tech-card.show { opacity:1; }
+.tech-card:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(20,184,166,0.5); }
+
+.grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }
+.flex-wrap { display:flex; flex-wrap:wrap; justify-content:center; }
+
+button { cursor:pointer; }
+</style>
+</head>
+<body class="text-white">
+
+<!-- Header -->
+<header class="fixed w-full bg-gray-800 shadow-md z-50">
+<nav class="container mx-auto flex justify-between items-center p-4">
+<h1 class="text-xl font-bold text-teal-400">Portfolio</h1>
+<ul class="flex gap-6">
+<li><a href="#home" class="hover:text-teal-300 transition">Home</a></li>
+<li><a href="#about" class="hover:text-teal-300 transition">About</a></li>
+<li><a href="#projects" class="hover:text-teal-300 transition">Projects</a></li>
+<li><a href="#achievements" class="hover:text-teal-300 transition">Achievements</a></li>
+<li><a href="#books" class="hover:text-teal-300 transition">Books</a></li>
+<li><a href="#techstack" class="hover:text-teal-300 transition">Tech Stack</a></li>
+<li><a href="#contact" class="hover:text-teal-300 transition">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="h-screen flex flex-col justify-center items-center text-center px-6">
+<h2 class="text-3xl md:text-5xl font-bold mb-4 hero-text"><span>Welcome</span> to my Portfolio Website</h2>
+<p class="text-lg md:text-xl mb-6 hero-text"><span># Ready to Innovate</span> | Frontend Developer | Network & Telecom Student</p>
+<a href="#about" class="bg-teal-500 px-6 py-3 rounded-lg text-white hover:bg-teal-600 transition hero-text">Explore More</a>
+</section>
+
+<!-- About Section -->
+<section id="about" class="container mx-auto py-20 px-6 flex flex-col md:flex-row items-center gap-10">
+<img src="https://i.postimg.cc/63BtqMQQ/IMG-8210.jpg" alt="Profile" class="rounded-full shadow-lg w-36 h-36 object-cover about-img">
+<div class="about-text">
+<h3 class="text-3xl font-bold mb-4">About Me</h3>
+<p class="text-gray-300 mb-4">
+Hi, I'm <span class="text-teal-400 font-semibold">Fatimah Ibrahim</span>, a UI Developer and Network & Telecom student passionate about creating innovative and practical tech solutions.
+</p>
+<a href="https://drive.google.com/file/d/1lrMTcvbMeLRmag5ax_u8dXdibgBvQhLc/view?usp=drivesdk" target="_blank" class="bg-teal-500 px-5 py-2 rounded-lg hover:bg-teal-600 transition">Download CV</a>
+</div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="container mx-auto py-20 px-6">
+<h3 class="text-3xl font-bold mb-6 text-center">&lt; Projects &gt;</h3>
+<div class="grid-3">
+<div class="card img-card"><img src="https://i.postimg.cc/W30426LZ/Sage-Green-Minimalist-Natural-Download-App-Facebook-Post.png"><div class="overlay"><h5 class="font-bold text-lg">Project 1</h5><p>App Design</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/QMq4RwSX/Beige-New-Product-Mockup-Now-Available-Facebook-Post-2.png"><div class="overlay"><h5 class="font-bold text-lg">Project 2</h5><p>Product Launch</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/Bnz7DRYs/Purple-and-White-Minimalist-New-Website-Launch-Free-Facebook-Post.png"><div class="overlay"><h5 class="font-bold text-lg">Project 3</h5><p>Website Launch</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/kG8MRHPM/e-Book-Mockup-for-Coaches-Facebook-Post.png"><div class="overlay"><h5 class="font-bold text-lg">Project 4</h5><p>eBook Design</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/QtPkk8WB/Sage-Green-Minimalist-Natural-Download-App-Facebook-Post-2.png"><div class="overlay"><h5 class="font-bold text-lg">Project 5</h5><p>App Update</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/pVmv2pBk/Blue-Order-Online-Facebook-Post.png"><div class="overlay"><h5 class="font-bold text-lg">Project 6</h5><p>Online Ordering</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/VvRwXndq/Brown-Modern-Push-Notification-We-are-Hiring-Barista-Facebook-Post.png"><div class="overlay"><h5 class="font-bold text-lg">Project 7</h5><p>Notification System</p></div></div>
+</div>
+</section>
+
+<!-- Achievements / Certificates Section -->
+<section id="achievements" class="container mx-auto py-20 px-6">
+<h3 class="text-3xl font-bold mb-6 text-center">Achievements & Certificates</h3>
+<div class="grid-3">
+<div class="card img-card"><img src="https://i.postimg.cc/wBNdDGzT/IMG-7622.jpg"><div class="overlay"><p>وثيقة التخرج</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/s2BmHkH7/image.png"><div class="overlay"><p>مقدمة في عالم الشبكات</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/Jh9qfpSg/excel.png"><div class="overlay"><p>جداول Excel</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/52Kp34gf/image.png"><div class="overlay"><p>مقدمة في أمن السيبراني</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/kMjc9XrK/IMG-7611.jpg"><div class="overlay"><p>إدارة فريق خدمة العملاء</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/DwGdqrSP/IMG-7612.jpg"><div class="overlay"><p>البلوك تشين</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/3wHj9kp5/IMG-7613.jpg"><div class="overlay"><p>PMP</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/tJ7F7W0P/IMG-7614.jpg"><div class="overlay"><p>تعلم الآلة</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/wjYsYSBD/IMG-7617.jpg"><div class="overlay"><p>إدارة الضغوط في العمل</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/jq97ZW0g/IMG-7616.jpg"><div class="overlay"><p>المقابلة الشخصية</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/DZN8jNDJ/IMG-7618.jpg"><div class="overlay"><p>كتابة السيرة الذاتية الاحترافية</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/7b8bD2qq/IMG-7620.jpg"><div class="overlay"><p>الكتابة الاحترافية في بيئة العمل</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/5tzJxPNv/IMG-7615.jpg"><div class="overlay"><p>تعرف على أساسيات الحاسب الآلي</p></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/hjnkKcYW/IMG-7619.jpg"><div class="overlay"><p>الأساسيات المهنية</p></div></div>
+</div>
+</section>
+
+<!-- Books / Publications Section -->
+<section id="books" class="container mx-auto py-20 px-6">
+<h3 class="text-3xl font-bold mb-6 text-center">Books & Publications</h3>
+<div class="grid-3">
+<div class="card img-card"><img src="https://i.postimg.cc/k41bJ6yG/Blue-Soft-Book-Cover-Mockup-Pinterest-Pin-3.png"><div class="overlay"><h5 class="font-bold text-lg">Zero to Basic</h5></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/Sxg27YwG/Blue-Soft-Book-Cover-Mockup-Pinterest-Pin-5.png"><div class="overlay"><h5 class="font-bold text-lg">Groundeded</h5></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/P55NxrPW/Blue-Soft-Book-Cover-Mockup-Pinterest-Pin.png"><div class="overlay"><h5 class="font-bold text-lg">Read More</h5></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/7YYq1tw5/Blue-Soft-Book-Cover-Mockup-Pinterest-Pin-4.png"><div class="overlay"><h5 class="font-bold text-lg">The First 100</h5></div></div>
+<div class="card img-card"><img src="https://i.postimg.cc/667Czc0H/Bank.png"><div class="overlay"><h5 class="font-bold text-lg">من شُطوط الفوضى</h5></div></div>
+</div>
+</section>
+
+<!-- Tech Stack Section -->
+<section id="techstack" class="container mx-auto py-20 px-6 text-center">
+<h3 class="text-3xl font-bold mb-6">Tech Stack</h3>
+<button id="tech-btn" class="bg-teal-500 px-4 py-2 rounded-lg hover:bg-teal-600 transition">Show Skills</button>
+<div id="tech-list" class="flex flex-wrap justify-center mt-4">
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><p>JavaScript</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><p>React</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><p>Node.js</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="VS Code"><p>VS Code</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><p>Figma</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><p>GitHub</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress"><p>WordPress</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" alt="Vite"><p>Vite</p></div>
+<div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" alt="Webpack"><p>Webpack</p></div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="bg-gray-800 py-20 px-6">
+<div class="container mx-auto text-center">
+<h3 class="text-3xl font-bold mb-6">Contact</h3>
+<p class="text-gray-300 mb-2"><i class="fas fa-envelope text-teal-400"></i> 
+<a href="mailto:fim946735@gmail.com" class="text-teal-400 hover:underline">fim946735@gmail.com</a></p>
+<p class="text-gray-300 mb-2"><i class="fas fa-phone text-teal-400"></i> 
+<a href="tel:0551486823" class="text-teal-400 hover:underline">0551486823</a></p>
+<p class="text-gray-300 mb-2"><i class="fab fa-linkedin text-teal-400"></i> 
+<a href="https://www.linkedin.com/in/fatima-ibrahim-1b7586344" target="_blank" class="text-teal-400 hover:underline">LinkedIn Profile</a></p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 py-6 text-center text-gray-500">&copy; 2025 Fatimah Ibrahim | All Rights Reserved</footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const techCards = document.querySelectorAll('.tech-card');
+const techBtn = document.getElementById('tech-btn');
+techBtn.addEventListener('click', ()=>{
+  techCards.forEach(card => card.classList.add('show'));
+});
+window.addEventListener('scroll', ()=>{
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){ card.style.opacity = '1'; card.style.transform='translateY(0)'; }
+  });
+});
+</script>
+
+</body>
+</html>
